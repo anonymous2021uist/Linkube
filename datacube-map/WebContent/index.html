@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="js/leaflet/leaflet.css">
+<link rel="stylesheet" href="css/switch.css">
+<link rel="stylesheet" href="css/myCSS.css">
+<link rel="stylesheet" href="css/checkbox.css">
+<link rel="stylesheet" href="js/jrange/jquery.range.css">
+<script type="text/javascript" src="js/d3.min.js"></script>
+<script type="text/javascript" src="js/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jrange/jquery.range.js"></script>
+<script type="text/javascript" src="js/echarts/echarts.min.js"></script>
+<!-- <style type="text/css">
+#mapDiv {
+	height: 800px;
+	width: 1000px;
+}
+</style> -->
+<script type="text/javascript" src="js/UI.js"></script>
+</head>
+<body>
+	<div id="mapDiv" class="map map-home" style="height: 600px"></div>
+	<input type="checkbox" id="PStyle" class="switch" />
+	<div id="heat-slider" style="width: auto; height: 20px;"></div>
+	<input type="hidden" id="agg-slider" value="5" />
+	<br>	
+	<button type="button" onClick="queryGet()">queryGet</button>
+	<input type="checkbox" id="Android"/><label for="checkbox-7-1"><span>Android</span></label>
+	<input type="checkbox" id="IPhone"/><label for="checkbox-7-1"><span>IPhone</span></label>
+	<button type="button" onClick="queryTime()">queryTime</button>
+	<button type="button" onClick="queryCompare()">queryCompare</button>
+	<form name=formen> 
+		<input type="file" name="picpath" id="picpath" style="display:none" onChange="jsReadFiles(this.files)"> 
+		<input name="path" readonly> 
+		<input type="button" value="choose queries" onclick="document.formen.picpath.click()"> 
+		<input type="button" value="Test queries" onClick="reTest()">
+	</form>
+	<button type="button" onClick="updateAggsplit()">Update</button>
+	<input type="text" id="AggSplit" value="asdfasdf"></input>
+	<button type="button" onClick="reciveAggsplit()">Receive</button>
+	<br>
+	<div id="time_zoom" style="width: auto; height: 400px;" onmouseup="tzMouseUp()"></div>
+	<br>
+	<div id="compare" style="width: auto; height: 400px;"></div>
+</body>
+<script type="text/javascript" src="js/timeZoom.js"></script>
+<script type="text/javascript" src="js/compare.js"></script>
+</html>

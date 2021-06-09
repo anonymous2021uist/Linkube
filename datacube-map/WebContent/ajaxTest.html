@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	function queryPost() {
+		jQuery.ajax({
+			url : "queryTweets",
+			type : "post",
+			data : {
+				"ltLat" : 49.979488,
+				"ltLon" : -123.881836,
+				"rbLat" : 26.509905,
+				"rbLon" : -77.167969,
+				"zoom" : 12
+			},
+			dataType : "text",
+			success : function(msg) {
+				var nodes = jQuery.parseJSON(msg);
+				alert(nodes.length);
+			}
+		});
+	}
+
+	function queryGet() {
+		jQuery.ajax({
+			url : "queryTweets",
+			type : "get",
+			data : {
+				"ltLat" : 49.979488,
+				"ltLon" : -123.881836,
+				"rbLat" : 26.509905,
+				"rbLon" : -77.167969,
+				"zoom" : 12
+			},
+			dataType : "text",
+			success : function(msg) {
+				var nodes = jQuery.parseJSON(msg);
+				alert(nodes.length);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div id="div1">
+		<h2>Before</h2>
+	</div>
+	<button type="button" onClick="queryGet()">Get</button>
+	<button type="button" onClick="queryPost()">Post</button>
+</body>
+</html>
